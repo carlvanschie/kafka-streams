@@ -61,7 +61,7 @@ public class KafkaStreamTest {
     }
 
     private void setUpProducer() throws Exception {
-        // set up the Kafka producer properties
+        // set up the Kafka producer propertiesg
         Map<String, Object> senderProperties =
                 KafkaTestUtils.senderProps(embeddedKafka.getBrokersAsString());
 
