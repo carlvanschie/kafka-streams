@@ -1,13 +1,13 @@
 package com.vanschie;
 
-import com.vanschie.kafka.Reciver;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;t
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.kafka.config.KafkaListenerEndpointRegistry;
@@ -17,7 +17,6 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.listener.KafkaMessageListenerContainer;
 import org.springframework.kafka.listener.MessageListener;
-import org.springframework.kafka.listener.MessageListenerContainer;
 import org.springframework.kafka.listener.config.ContainerProperties;
 import org.springframework.kafka.test.rule.KafkaEmbedded;
 import org.springframework.kafka.test.utils.ContainerTestUtils;
@@ -41,7 +40,7 @@ public class KafkaStreamTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(KafkaStreamTest.class);
     private static final String RECEIVER_TOPIC = "topic";
-    public static final String TEST_MESSAGE = "Hello Spring Kafka Receiver!";
+    private static final String TEST_MESSAGE = "test message";
 
     @ClassRule
     public static KafkaEmbedded embeddedKafka = new KafkaEmbedded(1, true, RECEIVER_TOPIC);
@@ -54,7 +53,6 @@ public class KafkaStreamTest {
 
     @Autowired
     private KafkaListenerEndpointRegistry kafkaListenerEndpointRegistry;
-
 
     @Before
     public void setUp() throws Exception {
